@@ -19,7 +19,12 @@
  */
 package org.ow2.play.service.client;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.ow2.play.governance.api.EventGovernance;
 import org.ow2.play.governance.api.TopicAware;
+import org.ow2.play.metadata.api.service.MetadataService;
 import org.ow2.play.service.registry.api.Constants;
 import org.ow2.play.service.registry.api.Registry;
 import org.ow2.play.service.registry.api.RegistryException;
@@ -35,13 +40,18 @@ public class PlayClient {
 
 	protected String registryEndpoint;
 
+	private Registry client;
+
 	public PlayClient(String registryEndpoint) {
 		this.registryEndpoint = registryEndpoint;
 	}
 
-	protected Registry getRegistryClient() {
-		return CXFHelper
-				.getClientFromFinalURL(registryEndpoint, Registry.class);
+	protected synchronized Registry getRegistryClient() {
+		if (client == null) {
+			client = CXFHelper.getClientFromFinalURL(registryEndpoint,
+					Registry.class);
+		}
+		return client;
 	}
 
 	protected <T> T getWSClient(String key, Class<T> clazz)
@@ -54,6 +64,18 @@ public class PlayClient {
 		}
 	}
 
+	public Map<String, String> list() throws ClientException {
+		Map<String, String> result = new HashMap<String, String>();
+		try {
+			for (String key : getRegistryClient().keys()) {
+				result.put(key, getRegistryClient().get(key));
+			}
+		} catch (RegistryException e) {
+			throw new ClientException(e);
+		}
+		return result;
+	}
+
 	/**
 	 * Where to manage DSB business topics...
 	 * 
@@ -63,6 +85,26 @@ public class PlayClient {
 	public TopicAware getDSBTopicAware() throws ClientException {
 		return getWSClient(Constants.DSB_BUSINESS_TOPIC_MANAGEMENT,
 				TopicAware.class);
+	}
+
+	/**
+	 * Get metadata client
+	 * 
+	 * @return
+	 * @throws ClientException
+	 */
+	public MetadataService getMetadataService() throws ClientException {
+		return getWSClient(Constants.METADATA, MetadataService.class);
+	}
+	
+	/**
+	 * Get the governance client
+	 * 
+	 * @return
+	 * @throws ClientException
+	 */
+	public EventGovernance getEventGovernance() throws ClientException {
+		return getWSClient(Constants.GOVERNANCE, EventGovernance.class);
 	}
 
 }
