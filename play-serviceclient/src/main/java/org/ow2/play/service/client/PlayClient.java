@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.ow2.play.governance.api.EventGovernance;
+import org.ow2.play.governance.api.SubscriptionService;
 import org.ow2.play.governance.api.TopicAware;
 import org.ow2.play.metadata.api.service.MetadataService;
 import org.ow2.play.service.registry.api.Constants;
@@ -106,5 +107,14 @@ public class PlayClient {
 	public EventGovernance getEventGovernance() throws ClientException {
 		return getWSClient(Constants.GOVERNANCE, EventGovernance.class);
 	}
-
+	
+	/**
+	 * Get the subscription client
+	 * 
+	 * @return
+	 * @throws ClientException
+	 */
+	public SubscriptionService getSubscriptionService() throws ClientException {
+		return getWSClient(Constants.GOVERNANCE_SUBSCRIPTION_SERVICE, SubscriptionService.class);
+	}
 }
