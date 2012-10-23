@@ -25,6 +25,7 @@ import java.util.Map;
 import org.ow2.play.governance.api.EventGovernance;
 import org.ow2.play.governance.api.SubscriptionService;
 import org.ow2.play.governance.api.TopicAware;
+import org.ow2.play.governance.api.TopicRegistry;
 import org.ow2.play.metadata.api.service.MetadataService;
 import org.ow2.play.service.registry.api.Constants;
 import org.ow2.play.service.registry.api.Registry;
@@ -116,5 +117,15 @@ public class PlayClient {
 	 */
 	public SubscriptionService getSubscriptionService() throws ClientException {
 		return getWSClient(Constants.GOVERNANCE_SUBSCRIPTION_SERVICE, SubscriptionService.class);
+	}
+	
+	/**
+	 * Get the topic registry client
+	 * 
+	 * @return
+	 * @throws ClientException
+	 */
+	public TopicRegistry getTopicRegistryService() throws ClientException {
+		return getWSClient(Constants.GOVERNANCE_TOPICREGISTRY_SERVICE, TopicRegistry.class);
 	}
 }
