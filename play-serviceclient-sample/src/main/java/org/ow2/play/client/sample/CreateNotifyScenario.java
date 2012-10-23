@@ -24,7 +24,8 @@ import org.ow2.play.service.client.PlayClient;
 
 /**
  * Creates a new DSB topic and EC instance for a given topic. User will be able
- * to push notification to the platform using the endpoint.
+ * to push notification to the platform using the endpoint returned by the
+ * client. The notification will be published to the eventcloud by the DSB.
  * 
  * @author chamerling
  * 
@@ -35,12 +36,13 @@ public class CreateNotifyScenario {
 	 * @param args
 	 */
 	public static void main(String[] args) throws Exception {
-		
+
 		// FIXME = replace by the platform registry endpoint
-		String endpoint = "http://localhost:8080/registry/RegistryService";
+		// String endpoint = "http://localhost:8080/registry/RegistryService";
+		String endpoint = "http://46.105.181.221:8080/registry/RegistryService";
 
 		Topic topic = new Topic();
-		topic.setName("MyPubTopic");
+		topic.setName("MyPubTopicTest");
 		topic.setNs("http://play.ow2.org/sample");
 		topic.setPrefix("p");
 

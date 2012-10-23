@@ -35,7 +35,9 @@ public class CreateComplexScenario {
 	public static void main(String[] args) throws Exception {
 
 		// FIXME : replace by the platform registry endpoint
-		String endpoint = "http://localhost:8080/registry/RegistryService";
+//		String endpoint = "http://localhost:8080/registry/RegistryService";
+		String endpoint = "http://46.105.181.221:8080/registry/RegistryService";
+
 
 		Topic topic = new Topic();
 		topic.setName("MySubTopic");
@@ -46,11 +48,13 @@ public class CreateComplexScenario {
 		String subscribeTo = client.getEventGovernance().createSubscriberTopic(
 				topic);
 
+		System.out.println("Subscribe to : " + subscribeTo);
 		// we can now subscribe to the DSB topic. The WSN subscribe endpoint has
 		// been returned by the governance operation call.
 		// You can use the standard WSN subscribe API or use the governance one like below:
 		
 		// Subscriber endpoint ie the service which subscribe to receive notifications
+		/*
 		String subscriberEndpoint = "http://localhost:8889/sample/Subscriber";
 		
 		Subscription subscription = new Subscription();
@@ -60,7 +64,7 @@ public class CreateComplexScenario {
 		Subscription result = client.getSubscriptionService().subscribe(subscription);
 
 		System.out.println("Subscribed : " + result);
-		
+		*/
 		// you will now receive notification on your endpoint when they are published to the EC by the CEP.
 	}
 
