@@ -1,33 +1,39 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  
-  <parent>
-    <artifactId>play-parent</artifactId>
-    <groupId>eu.play-project</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.ow2.play</groupId>
-  <artifactId>play-serviceclient-sample</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>play-serviceclient-sample</name>
+	<parent>
+		<artifactId>play-parent</artifactId>
+		<groupId>eu.play-project</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-    	<groupId>org.ow2.play</groupId>
-    	<artifactId>play-serviceclient</artifactId>
-    	<version>1.0-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
+	<groupId>org.ow2.play</groupId>
+	<artifactId>play-serviceclient-sample</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>play-serviceclient-sample</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.ow2.play</groupId>
+			<artifactId>play-serviceclient</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+	</dependencies>
 </project>

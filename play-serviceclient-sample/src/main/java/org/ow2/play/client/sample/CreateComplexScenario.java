@@ -48,7 +48,8 @@ public class CreateComplexScenario {
 		String subscribeTo = client.getEventGovernance().createSubscriberTopic(
 				topic);
 
-		System.out.println("Subscribe to : " + subscribeTo);
+		System.out.println("You can subscribe to : " + subscribeTo);
+		
 		// we can now subscribe to the DSB topic. The WSN subscribe endpoint has
 		// been returned by the governance operation call.
 		// You can use the standard WSN subscribe API or use the governance one like below:
