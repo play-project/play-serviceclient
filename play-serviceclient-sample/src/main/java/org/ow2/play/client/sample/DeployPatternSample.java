@@ -47,15 +47,16 @@ public class DeployPatternSample {
 		String registryEndpoint = "http://46.105.181.221:8080/registry/RegistryService";
 		PlayClient client = new PlayClient(registryEndpoint);
 
-		String patternId = "MyPattern_" + System.currentTimeMillis();
+		String patternId = "PingPong_" + System.currentTimeMillis();
 		String pattern = FileUtils.readFileToString(new File(
-				DeployPatternSample.class.getResource("/fb.txt").toURI()));
+				DeployPatternSample.class.getResource("/pingpong.txt").toURI()));
 
 		SimplePatternService patternClient = client.getPatternService();
 
 		System.out.println("Input topics from pattern : "
 				+ patternClient.getInputTopics(pattern));
 
+		// this is the topic you have to subscribe to to receive notifications!!!
 		System.out.println("Output topics from pattern : "
 				+ patternClient.getOutputTopics(pattern));
 
