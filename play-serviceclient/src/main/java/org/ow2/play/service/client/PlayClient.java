@@ -137,6 +137,6 @@ public class PlayClient {
 	 * @throws ClientException
 	 */
 	public SimplePatternService getPatternService() throws ClientException {
-		return getWSClient(Constants.GOVERNANCE_PATTERN_SIMPLE_SERVICE, SimplePatternService.class);
+		return getWSClient(Constants.GOVERNANCE_PATTERN_SERVICE, SimplePatternService.class);
 	}
 }
