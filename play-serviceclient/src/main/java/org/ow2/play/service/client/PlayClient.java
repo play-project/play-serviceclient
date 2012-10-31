@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.ow2.play.governance.api.EventGovernance;
+import org.ow2.play.governance.api.SimplePatternService;
 import org.ow2.play.governance.api.SubscriptionService;
 import org.ow2.play.governance.api.TopicAware;
 import org.ow2.play.governance.api.TopicRegistry;
@@ -127,5 +128,15 @@ public class PlayClient {
 	 */
 	public TopicRegistry getTopicRegistryService() throws ClientException {
 		return getWSClient(Constants.GOVERNANCE_TOPICREGISTRY_SERVICE, TopicRegistry.class);
+	}
+	
+	/**
+	 * Get the pattern deployer client
+	 * 
+	 * @return
+	 * @throws ClientException
+	 */
+	public SimplePatternService getPatternService() throws ClientException {
+		return getWSClient(Constants.GOVERNANCE_PATTERN_SIMPLE_SERVICE, SimplePatternService.class);
 	}
 }
