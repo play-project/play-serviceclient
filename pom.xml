@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-      <artifactId>play-parent</artifactId>
-	    <groupId>eu.play-project</groupId>
-	    <version>1.2-SNAPSHOT</version>
+		<groupId>org.ow2.play</groupId>
+		<artifactId>play-parent</artifactId>
+		<version>1.2-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.ow2.play</groupId>
